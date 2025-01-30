@@ -19,7 +19,6 @@ Write-Host "Installing WinGet..."
 Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
 Write-Host "Done.`n`n"
 
-
 ##############################
 Write-Host "Installing Git..."
 ##############################

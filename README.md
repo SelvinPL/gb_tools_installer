@@ -35,4 +35,5 @@ for installation use in cmd.exe runned as admin:
 ```
 
 Here is how installation should looks like on fresh windows 11:
-https://github.com/SelvinPL/gb_tools_installer/raw/master/assets/installation.mov
+
+https://github.com/user-attachments/assets/20dd73ab-e9b1-4c82-8f53-692c1b3a823b
