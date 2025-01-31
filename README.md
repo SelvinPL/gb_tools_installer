@@ -33,15 +33,12 @@ Then you can start Windows Termial profile "GBDK" which has
 - MSYS added to PATH
 - Function from GBDK.psm1 module which can create new project from cli `New-GBDKProject projectname`
 
-for installation use in cmd.exe runned as admin:
+
+for installation use powershell.exe and run inside it
 ```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/install.ps1'))"
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/install.ps1'))
 ```
-*if you have problem with Antivirus you may just download https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/install.ps1
-and run in admin cmd*
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command path_to/install.ps1
-```
+you DON'T NEED CONSOLE - you'll be asked for UAC when programs would be installed
 
 Here is how installation should looks like on fresh windows 11:
 
