@@ -14,7 +14,7 @@ What it does?
   $Env:GBDK_HOME = "C:/GB/gbdk"
   $Env:EMULICIOUS_PATH = "C:/GB/emulicious"
   $Env:PATH += ";C:/msys64/usr/bin"
-  $Env:GBDK_TEMPLATE_BASE = "C:/GB/"
+  $Env:GB_TOOLS_BASE_PATH = "C:/GB/"
   Import-Module $PSScriptRoot/GBDK.psm1 -Force | Out-Null
   ```
 - adds profile to `settings.json` of Windows Terminal

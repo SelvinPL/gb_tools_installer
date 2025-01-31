@@ -3,7 +3,7 @@ function Install-GBDKTemplate {
 		[switch]$UpdateTemplate = $false
 	)
 	$currentDirectory = Get-Location
-	$templatePath = "$Env:GBDK_TEMPLATE_BASE/gbdk_template"
+	$templatePath = "$Env:GB_TOOLS_BASE_PATH/gbdk_template"
 	if (Test-Path -Path $templatePath)
 	{
 		if($UpdateTemplate)
@@ -15,7 +15,7 @@ function Install-GBDKTemplate {
 	}
 	else
 	{
-		cd $Env:GBDK_TEMPLATE_BASE | Out-Null
+		cd $Env:GB_TOOLS_BASE_PATH | Out-Null
 		git clone https://github.com/SelvinPL/gbdk_template.git | Out-Null
 	}
 	cd $currentDirectory | Out-Null
@@ -29,10 +29,12 @@ function New-GBDKProject {
 
 	Install-GBDKTemplate -UpdateTemplate:$UpdateTemplate | Out-Null
 	$currentDirectory = Get-Location
-	$templatePath = "$Env:GBDK_TEMPLATE_BASE/gbdk_template"
+	$templatePath = "$Env:GB_TOOLS_BASE_PATH/gbdk_template"
 	$newProjectPath = "$currentDirectory/$Name"
 	mkdir $newProjectPath -Force | Out-Null
 	Copy-Item -Path "$templatePath/*" -Destination $newProjectPath -Force -Recurse -Container | Out-Null
 	Remove-Item -Path "$newProjectPath/.git" -Force -Recurse | Out-Null
 	cd $newProjectPath
 }
+
+
