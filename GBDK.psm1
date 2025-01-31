@@ -37,4 +37,8 @@ function New-GBDKProject {
 	cd $newProjectPath
 }
 
-
+function Update-GBDKModule {
+	$gbPath = $Env:GB_TOOLS_BASE_PATH
+	$psmFilePath = "$gbPath/GBDK.psm1"
+	Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/GBDK.psm1" -OutFile $psmFilePath | Out-Null
+}
