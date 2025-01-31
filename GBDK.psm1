@@ -1,11 +1,17 @@
-function Install-GBDKTemplate() {
+function Install-GBDKTemplate {
+    param(
+        [switch]$UpdateTemplate = $false
+    )    
     $currentDirectory = Get-Location
     $templatePath = "$Env:GBDK_TEMPLATE_BASE/gbdk_template"
     if (Test-Path -Path $templatePath)
     {
-        cd $templatePath | Out-Null
-        git pull | Out-Null
-        git checkout master | Out-Null
+        if($UpdateTemplate)
+        {
+            cd $templatePath | Out-Null
+            git pull | Out-Null
+            git checkout master | Out-Null
+        }
     }
     else
     {
@@ -17,10 +23,11 @@ function Install-GBDKTemplate() {
 
 function New-GBDKProject {
     param(
-        [string]$Name
+        [string]$Name,
+        [switch]$UpdateTemplate = $false
     )
 
-    Install-GBDKTemplate | Out-Null
+    Install-GBDKTemplate -UpdateTemplate:$UpdateTemplate | Out-Null
     $currentDirectory = Get-Location
     $templatePath = "$Env:GBDK_TEMPLATE_BASE/gbdk_template"
     $newProjectPath = "$currentDirectory/$Name"
