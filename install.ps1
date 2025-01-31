@@ -95,15 +95,15 @@ $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertF
 $gbdkProfile = $settingsJson.profiles.list | where { $_.guid -eq $profileGuid }
 if(!$gbdkProfile)
 {
-    $gbdkProfile = @"
-    {
-        "commandline": "pwsh.exe  -noexit \"$psFilePath\"",
-        "guid": "$profileGuid",
-        "icon": "C:/msys64/msys2.ico",
-        "name": "$profileName"
-    }
-"@  | ConvertFrom-Json
-    $settingsJson.profiles.list += $gbdkProfile
-    Set-Content $windowsTerminalSettingsPath ($settingsJson | ConvertTo-Json -Depth 100)
+	$gbdkProfile = @"
+	{
+		"commandline": "pwsh.exe -noexit \"$psFilePath\"",
+		"guid": "$profileGuid",
+		"icon": "C:/msys64/msys2.ico",
+		"name": "$profileName"
+	}
+"@ | ConvertFrom-Json
+	$settingsJson.profiles.list += $gbdkProfile
+	Set-Content $windowsTerminalSettingsPath ($settingsJson | ConvertTo-Json -Depth 100)
 }
 Write-Host "Done.`n`n"
