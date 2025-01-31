@@ -88,7 +88,7 @@ Set-Content $psFile @"
 `$Env:GBDK_HOME = "$gbdkPath"
 `$Env:EMULICIOUS_PATH = "$emuliciousPath"
 `$Env:PATH += ";C:/msys64/usr/bin"
-`$Env:GBDK_TEMPLATE_BASE = "$gbPath"
+`$Env:GB_TOOLS_BASE_PATH = "$gbPath"
 Import-Module `$PSScriptRoot/GBDK.psm1 -Force | Out-Null
 "@
 $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertFrom-Json
