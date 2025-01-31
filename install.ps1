@@ -1,4 +1,4 @@
-$gbPath = "C:/GB1"
+$gbPath = "C:/GB"
 $gbdkPath = "$gbPath/gbdk"
 $templatePath = $gbPath + "/!template"
 $tempPath = "$env:TEMP/gbdk_installer"
