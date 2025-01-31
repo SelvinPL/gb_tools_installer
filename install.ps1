@@ -1,4 +1,4 @@
-$gbPath = "C:/GB"
+$gbPath = "C:/GB1"
 $gbdkPath = "$gbPath/gbdk"
 $templatePath = $gbPath + "/!template"
 $tempPath = "$env:TEMP/gbdk_installer"
@@ -9,6 +9,7 @@ $gbdkUrl = "https://github.com/gbdk-2020/gbdk-2020/releases/download/4.3.0/gbdk-
 $gbdkZipPath = "$tempPath/gbdk-win64.zip"
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 $psFilePath = "$gbPath/GBDK.ps1"
+$psmFilePath = "$gbPath/GBDK.ps1"
 $profileGuid = "3e4cbead-a666-4762-baea-ace7935ba537"
 $profileName = "GBDK"
 
@@ -81,11 +82,14 @@ Write-Host "Done.`n`n"
 #################################################
 Write-Host "Creating Windows Terminal profile..."
 #################################################
+Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/GBDK.psm1" -OutFile $psmFilePath | Out-Null
 $psFile = New-Item $psFilePath -type file -Force
 Set-Content $psFile @"
 `$Env:GBDK_HOME = "$gbdkPath"
 `$Env:EMULICIOUS_PATH = "$emuliciousPath"
 `$Env:PATH += ";C:/msys64/usr/bin"
+`$Env:GBDK_TEMPLATE_BASE = "$gbPath"
+Import-Module $PSScriptRoot/GBDK.psm1 -Force | Out-Null
 "@
 $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertFrom-Json
 $gbdkProfile = $settingsJson.profiles.list | where { $_.guid -eq $profileGuid }
