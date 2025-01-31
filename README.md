@@ -6,10 +6,10 @@ What it does?
 - installs Windows Terminal
 - installs Visual Studio Code
 - installs MSYS2
-- Download and unpack Emulicious to `C:\GB\emulicious`
-- Download and unpack gbdk-2020 to `C:\GB\gbdk`
-- Download GBDK.psm1 from this repo to `C:\GB`
-- creates  `C:\GB\GBDK.ps1` with content:
+- Download and unpack Emulicious to `C:/GB/emulicious`(*)
+- Download and unpack gbdk-2020 to `C:/GB/gbdk`(*)
+- Download GBDK.psm1 from this repo to `C:/GB`(*)
+- creates  `C:/GB/GBDK.ps1` with content:
   ```ps1
   $Env:GBDK_HOME = "C:/GB/gbdk"
   $Env:EMULICIOUS_PATH = "C:/GB/emulicious"
@@ -26,6 +26,7 @@ What it does?
         "name": "GBDK"
       }
   ```
+(*) you can change `C:/GB` by providing `$env:GB_TOOLS_BASE_PATH` variable before you run `iex ...` in powershell console fx.: `$env:GB_TOOLS_BASE_PATH="C:/custom/path"`
 
 Then you can start Windows Termial profile "GBDK" which has 
 - GBDK_HOME environment variable

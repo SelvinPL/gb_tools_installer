@@ -1,4 +1,4 @@
-$gbToolsBasePath = "C:/GB"
+$gbToolsBasePath = if ($env:GB_TOOLS_BASE_PATH) { $env:GB_TOOLS_BASE_PATH } else { "C:/GB" } 
 $gbdkPath = "$gbToolsBasePath/gbdk"
 $templatePath = $gbToolsBasePath + "/!template"
 $tempPath = "$env:TEMP/gbdk_installer"
