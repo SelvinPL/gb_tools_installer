@@ -9,8 +9,8 @@ $gbdkUrl = "https://github.com/gbdk-2020/gbdk-2020/releases/download/4.3.0/gbdk-
 $gbdkZipPath = "$tempPath/gbdk-win64.zip"
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 $psFilePath = "$gbPath/GBDK.ps1"
-$psmFilePath = "$gbPath/GBDK.ps1"
-$profileGuid = "3e4cbead-a666-4762-baea-ace7935ba537"
+$psmFilePath = "$gbPath/GBDK.psm1"
+$profileGuid = "{3e4cbead-a666-4762-baea-ace7935ba537}"
 $profileName = "GBDK"
 
 $progressPreference = 'silentlyContinue'
@@ -98,7 +98,7 @@ if(!$gbdkProfile)
     $gbdkProfile = @"
     {
         "commandline": "pwsh.exe  -noexit \"$psFilePath\"",
-        "guid": "{$profileGuid}",
+        "guid": "$profileGuid",
         "icon": "C:/msys64/msys2.ico",
         "name": "$profileName"
     }
