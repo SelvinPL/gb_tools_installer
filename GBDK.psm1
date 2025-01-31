@@ -9,6 +9,7 @@ function Install-GBDKTemplate() {
     }
     else
     {
+        cd $Env:GBDK_TEMPLATE_BASE | Out-Null
         git clone https://github.com/SelvinPL/gbdk_template.git | Out-Null
     }
     cd $currentDirectory | Out-Null
