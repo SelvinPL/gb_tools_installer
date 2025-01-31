@@ -1,15 +1,15 @@
-$gbPath = "C:/GB"
-$gbdkPath = "$gbPath/gbdk"
-$templatePath = $gbPath + "/!template"
+$gbToolsBasePath = "C:/GB"
+$gbdkPath = "$gbToolsBasePath/gbdk"
+$templatePath = $gbToolsBasePath + "/!template"
 $tempPath = "$env:TEMP/gbdk_installer"
 $emuliciousZipPath = "$tempPath/emulicious.zip"
-$emuliciousPath = "$gbPath/emulicious"
+$emuliciousPath = "$gbToolsBasePath/emulicious"
 $emuliciousUrl = "https://emulicious.net/download/emulicious-with-64-bit-java-for-windows/?wpdmdl=989"
 $gbdkUrl = "https://github.com/gbdk-2020/gbdk-2020/releases/download/4.3.0/gbdk-win64.zip"
 $gbdkZipPath = "$tempPath/gbdk-win64.zip"
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-$psFilePath = "$gbPath/GBDK.ps1"
-$psmFilePath = "$gbPath/GBDK.psm1"
+$psFilePath = "$gbToolsBasePath/GBDK.ps1"
+$psmFilePath = "$gbToolsBasePath/GBDK.psm1"
 $profileGuid = "{3e4cbead-a666-4762-baea-ace7935ba537}"
 $profileName = "GBDK"
 
@@ -62,7 +62,7 @@ pacman -S make --noconfirm
 # create required folders #
 ###########################
 New-Item -ItemType Directory -Force $tempPath | Out-Null
-New-Item -ItemType Directory -Force $gbPath | Out-Null
+New-Item -ItemType Directory -Force $gbToolsBasePath | Out-Null
 
 #####################################
 Write-Host "Installing Emulicious..."
@@ -76,7 +76,7 @@ Write-Host "Done.`n`n"
 Write-Host "Installing GBDK-2020..."
 ####################################
 Invoke-RestMethod $gbdkUrl -OutFile $gbdkZipPath | Out-Null
-Expand-Archive $gbdkZipPath -DestinationPath $gbPath -Force | Out-Null
+Expand-Archive $gbdkZipPath -DestinationPath $gbToolsBasePath -Force | Out-Null
 Write-Host "Done.`n`n"
 
 #################################################
@@ -88,7 +88,7 @@ Set-Content $psFile @"
 `$Env:GBDK_HOME = "$gbdkPath"
 `$Env:EMULICIOUS_PATH = "$emuliciousPath"
 `$Env:PATH += ";C:/msys64/usr/bin"
-`$Env:GB_TOOLS_BASE_PATH = "$gbPath"
+`$Env:GB_TOOLS_BASE_PATH = "$gbToolsBasePath"
 Import-Module `$PSScriptRoot/GBDK.psm1 -Force | Out-Null
 "@
 $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertFrom-Json
