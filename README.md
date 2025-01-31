@@ -8,7 +8,7 @@ What it does?
 - installs MSYS2
 - Download and unpack Emulicious to `C:\GB\emulicious`
 - Download and unpack gbdk-2020 to `C:\GB\gbdk`
-- Download GBDK.psm1 from this repo to `C:\GB\gbdk`
+- Download GBDK.psm1 from this repo to `C:\GB`
 - creates  `C:\GB\GBDK.ps1` with content:
   ```ps1
   $Env:GBDK_HOME = "C:/GB/gbdk"
