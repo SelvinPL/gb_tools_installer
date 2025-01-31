@@ -89,7 +89,7 @@ Set-Content $psFile @"
 `$Env:EMULICIOUS_PATH = "$emuliciousPath"
 `$Env:PATH += ";C:/msys64/usr/bin"
 `$Env:GBDK_TEMPLATE_BASE = "$gbPath"
-Import-Module $PSScriptRoot/GBDK.psm1 -Force | Out-Null
+Import-Module `$PSScriptRoot/GBDK.psm1 -Force | Out-Null
 "@
 $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertFrom-Json
 $gbdkProfile = $settingsJson.profiles.list | where { $_.guid -eq $profileGuid }
