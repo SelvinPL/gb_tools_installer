@@ -38,7 +38,7 @@ for installation use powershell.exe and run inside it
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/install.ps1'))
 ```
-you DON'T NEED RUN CONSOLE AS ADMINISTRATOR - you'll be asked with UAC popup for every programs which needs administrator rights to install
+you DON'T NEED RUN CONSOLE AS ADMINISTRATOR - you'll be asked with UAC popup for every program which needs administrator rights to install
 
 Here is how installation should looks like on fresh windows 11:
 
