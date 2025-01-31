@@ -34,12 +34,16 @@ Then you can start Windows Termial profile "GBDK" which has
 - MSYS added to PATH
 - Function from GBDK.psm1 module which can create new project from cli `New-GBDKProject projectname`
 
-
-for installation use powershell.exe and run inside it
+For installation use powershell.exe and run inside it 
+(`iex` stands for `Invoke-Expression` - it downloads the content of `install.ps1` from this repo, store file content as string and run string content as script)
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/install.ps1'))
 ```
-you DON'T NEED RUN CONSOLE AS ADMINISTRATOR - you'll be asked with UAC popup for every program which needs administrator rights to install
+## YOU DON'T NEED RUN POWERSHELL CONSOLE AS ADMINISTRATOR 
+### and you prolly never should do this (unless you know what you are doing) for security reasons
+You'll be asked with UAC popup for every program which needs administrator rights to install.
+
+Movies bellow were made before I find out that this is a valid option.
 
 Here is how installation should looks like on fresh windows 11:
 
