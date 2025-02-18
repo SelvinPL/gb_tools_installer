@@ -9,6 +9,7 @@ $gbdkUrl = "https://github.com/gbdk-2020/gbdk-2020/releases/latest/download/gbdk
 $gbdkZipPath = "$tempPath/gbdk-win64.zip"
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 $psFilePath = "$gbToolsBasePath/GBDK.ps1"
+$iconFilePath = "$gbToolsBasePath/gbdk_icon.png"
 $psmFilePath = "$gbToolsBasePath/GBDK.psm1"
 $profileGuid = "{3e4cbead-a666-4762-baea-ace7935ba537}"
 $profileName = "GBDK"
@@ -82,6 +83,8 @@ Write-Host "Done.`n`n"
 #################################################
 Write-Host "Creating Windows Terminal profile..."
 #################################################
+## download icon ##
+Invoke-WebRequest "https://avatars.githubusercontent.com/gbdk-2020" -OutFile $iconFilePath
 Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/GBDK.psm1" -OutFile $psmFilePath | Out-Null
 $psFile = New-Item $psFilePath -type file -Force
 Set-Content $psFile @"
@@ -102,7 +105,7 @@ if(!$gbdkProfile)
 	{
 		"commandline": "pwsh.exe -noexit \"$psFilePath\"",
 		"guid": "$profileGuid",
-		"icon": "C:/msys64/msys2.ico",
+		"icon": "$iconFilePath",
 		"name": "$profileName"
 	}
 "@ | ConvertFrom-Json
