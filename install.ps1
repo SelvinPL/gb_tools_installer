@@ -73,8 +73,7 @@ Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer
 # create script file
 $profileScriptFile = New-Item $profileScriptPath -type file -Force
 # set script file's content
-Set-Content $profileScriptFile 
-@"
+Set-Content $profileScriptFile @"
 `$Env:GBDK_HOME = "$gbdkPath"
 `$Env:EMULICIOUS_PATH = "$emuliciousPath"
 `$Env:PATH += ";C:/msys64/usr/bin"
