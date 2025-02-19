@@ -1,4 +1,4 @@
-function Install-GBDKTemplate 
+function Install-GbdkTemplate 
 {
 	param(
 		[switch]$UpdateTemplate = $false
@@ -22,14 +22,14 @@ function Install-GBDKTemplate
 	cd $currentDirectory | Out-Null
 }
 
-function New-GBDKProject 
+function New-GbdkProject 
 {
 	param(
 		[string]$Name,
 		[switch]$UpdateTemplate = $false
 	)
 
-	Install-GBDKTemplate -UpdateTemplate:$UpdateTemplate | Out-Null
+	Install-GbdkTemplate -UpdateTemplate:$UpdateTemplate | Out-Null
 	$currentDirectory = Get-Location
 	$templatePath = "$Env:GB_TOOLS_BASE_PATH/gbdk_template"
 	$newProjectPath = "$currentDirectory/$Name"
@@ -39,9 +39,9 @@ function New-GBDKProject
 	cd $newProjectPath
 }
 
-function Update-GBDKModule 
+function Update-GbdkModule 
 {
 	$gbToolsBasePath = $Env:GB_TOOLS_BASE_PATH
-	$psmFilePath = "$gbToolsBasePath/GBDK.psm1"
-	Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/GBDK.psm1" -OutFile $psmFilePath | Out-Null
+	$psmFilePath = "$gbToolsBasePath/Gbdk.psm1"
+	Invoke-RestMethod "https://raw.githubusercontent.com/SelvinPL/gb_tools_installer/master/Gbdk.psm1" -OutFile $psmFilePath | Out-Null
 }
