@@ -86,12 +86,11 @@ Import-Module $moduleFilePath -Force | Out-Null
 # load Windows Terminal profile
 $settingsJson = Get-Content $windowsTerminalSettingsPath | Out-String | ConvertFrom-Json
 # find GBDK profile
-$gbdkProfile = $settingsJson.profiles.list | where { $_.guid -ne $profileGuid }
+$gbdkProfile = $settingsJson.profiles.list | where { $_.guid -eq $profileGuid }
 # create or modify GBDK profile
 if(!$gbdkProfile)
 {
-	$gbdkProfile =
-	@{
+	$gbdkProfile = @{
 		commandline = "pwsh.exe -noexit `"$profileScriptPath`""
 		guid = "$profileGuid"
 		icon = "$profileIconPath"
