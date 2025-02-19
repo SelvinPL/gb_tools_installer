@@ -35,7 +35,10 @@ Then you can start Windows Termial profile "GBDK" which has
 - GBDK_HOME environment variable
 - EMULICIOUS_PATH environment variable
 - MSYS added to PATH
-- Function from GBDK.psm1 module which can create new project from cli `New-GBDKProject projectname`
+- Function from `GBDK.psm1` module which can create new project from cli:
+	- `New-GbdkProject projectname [-UpdateTemplate]` - create new project using https://github.com/SelvinPL/gbdk_template as template (see: `Install-GbdkTemplate`)
+	- `Install-GbdkTemplate [-UpdateTemplate]` - clone (or pull if exists and used with UpdateTemplate) https://github.com/SelvinPL/gbdk_template
+	- `Update-GbdkModule` - update `GBDK.psm1` file from https://github.com/SelvinPL/gb_tools_installer/blob/master/GBDK.psm1
 
 For installation use powershell.exe and run inside it 
 (`iwr` for `Invoke-WebRequest` and `iex` stands for `Invoke-Expression` - it downloads the content of `install.ps1` from this repo and execute it as powershell's script)
