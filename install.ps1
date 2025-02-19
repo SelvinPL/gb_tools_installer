@@ -39,7 +39,7 @@ winget install -e $packagesToInstall --accept-package-agreements --accept-source
 # Installing make via packman
 #############################
 $Env:PATH += ";C:/msys64/usr/bin"
-pacman -S make --noconfirm
+pacman -S make --needed --noconfirm
 
 ##########################
 # create required folders 
