@@ -14,22 +14,22 @@ What it does?
   $Env:GBDK_HOME = "C:/GB/gbdk"
   $Env:EMULICIOUS_PATH = "C:/GB/emulicious"
   $Env:PATH += ";C:/msys64/usr/bin"
-  $Env:GB_TOOLS_BASE_PATH = "C:/GB/"
+  $Env:GB_TOOLS_BASE_PATH = "C:/GB"
   $Env:GB_PROJECTS_PATH = "$Env:GB_TOOLS_BASE_PATH/projects"
   md -Force $Env:GB_PROJECTS_PATH | Out-Null
   cd $Env:GB_PROJECTS_PATH
-  Import-Module $PSScriptRoot/GBDK.psm1 -Force | Out-Null
+  Import-Module C:/GB/GBDK.psm1 -Force | Out-Null
   ```
 - adds profile to `settings.json` of Windows Terminal
   ```json
-      {
-        "commandline": "pwsh.exe  -noexit \"C:/GB/GBDK.ps1\"",
-        "guid": "{3e4cbead-a666-4762-baea-ace7935ba537}",
-        "icon": "C:/msys64/msys2.ico",
-        "name": "GBDK"
-      }
+	{
+		"commandline":  "pwsh.exe -noexit \"C:/GB/GBDK.ps1\"",
+		"guid":  "{3e4cbead-a666-4762-baea-ace7935ba537}",
+		"icon":  "C:/GB/gbdk_icon.png",
+		"name":  "GBDK"
+	}
   ```
-(*) you can change `C:/GB` by providing `$env:GB_TOOLS_BASE_PATH` variable before you run `iex ...` in powershell console fx.: `$env:GB_TOOLS_BASE_PATH="C:/custom/path"`
+(*) you can change `C:/GB` by providing `$env:GB_TOOLS_BASE_PATH` variable before you run `iwr https:...` in powershell console fx.: `$env:GB_TOOLS_BASE_PATH="C:/custom/path"`
 
 Then you can start Windows Termial profile "GBDK" which has 
 - GBDK_HOME environment variable
